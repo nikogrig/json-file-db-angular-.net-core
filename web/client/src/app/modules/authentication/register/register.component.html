@@ -1,0 +1,120 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">        
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <article class="card-body">
+                  <a class="float-right btn btn-primary" routerLink="/login">Sign in</a>
+                  <h4 class="card-title mb-4 mt-1">Sign up</h4>
+                  <section>
+                    <h4 style="text-align: center;">Welcome</h4>
+                    <br>
+                    <h6 style="text-align: center;">Sing up with your personal data</h6>
+                  </section>
+                  <hr>
+                  <form #registerForm="ngForm" (ngSubmit)="register()">
+                      <div class="form-group">       
+                          <input type="text" 
+                          class="form-control" 
+                          pattern="^[A-Za-z]+\w*$" 
+                          #usernameField="ngModel" 
+                          name="username" 
+                          [(ngModel)]="model.username" 
+                          placeholder="Username" 
+                          required>
+                          <div class="alert alert-danger" [hidden]="usernameField.pristine || usernameField.valid">Username must contain only letters and digits.</div>
+                        </div>
+                        <div class="form-group">
+                          <input 
+                          type="text" 
+                          class="form-control"
+                          pattern="^[a-zA-Z0-9.!#$%&’*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" 
+                          #emailField="ngModel" name="email" 
+                          [(ngModel)]="model.email" 
+                          placeholder="Email" 
+                          required>
+                          <div class="alert alert-danger" [hidden]="emailField.pristine || emailField.valid">Enter valid Email Address.</div>
+                        </div>
+                        <div class="form-group">
+                          <input 
+                          type="password" 
+                          class="form-control" 
+                          pattern="^[A-Za-z\d]{6,16}$"
+                          #passwordField="ngModel" 
+                          name="password" 
+                          [(ngModel)]="model.password" 
+                          placeholder="******" 
+                          required>
+                          <div class="alert alert-danger" [hidden]="passwordField.pristine || passwordField.valid">Password must contain only letters and digits and must be between 6 and 16 symbols.</div>
+                        </div>
+                        <div class="form-group">
+                          <input type="password" 
+                          class="form-control" 
+                          pattern="^[A-Za-z\d]{6,16}$" 
+                          #confirmPasswordField="ngModel" 
+                          name="confirmPassword" 
+                          [(ngModel)]="model.confirmPassword" 
+                          placeholder="Confirm password" 
+                          required>
+                          <div 
+                          class="alert alert-danger" 
+                          [hidden]="( confirmPasswordField.pristine || confirmPasswordField.valid ) 
+                                   && confirmPasswordField.value === passwordField.value">Both passwords must match.
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <input 
+                          type="text" 
+                          class="form-control" 
+                          pattern="^[A-Z]{1}[a-z]+$" 
+                          #firstNameField="ngModel" 
+                          name="firstname" 
+                          [(ngModel)]="model.firstname" 
+                          placeholder="First name"
+                          required>
+                          <div class="alert alert-danger" [hidden]="firstNameField.pristine || firstNameField.valid">Names must contain only letters and start with a capital letter.</div>
+                        </div>
+                        <div class="form-group">
+                          <input 
+                          type="text" 
+                          class="form-control" 
+                          pattern="^[A-Z]{1}[a-z]+$" 
+                          #lastNameField="ngModel" 
+                          name="lastname" 
+                          [(ngModel)]="model.lastname" 
+                          placeholder="Last name" 
+                          required>
+                          <div class="alert alert-danger" [hidden]="lastNameField.pristine || lastNameField.valid">Names must contain only letters and start with a capital letter.</div>
+                        </div>
+                        <div class="form-group">
+                          <input type="text" 
+                          class="form-control" 
+                          pattern="^[+0-9]{10,14}$" 
+                          #phoneNumberField="ngModel" 
+                          name="telephone" 
+                          [(ngModel)]="model.telephone" 
+                          placeholder="Phone number" required>
+                          <div class="alert alert-danger" [hidden]="phoneNumberField.pristine || phoneNumberField.valid">Phone number must contain only digits and start can be start with '+' sign.</div>
+                        </div>                   
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <button [disabled]="!registerForm.form.valid" 
+                                type="submit" 
+                                class="btn btn-primary tn-block">Register</button>                        
+                              </div> 
+                            </div>
+                          <div class="col-md-6 text-right">
+                            <a class="small" href="#">Forgot password?</a>
+                          </div>                                            
+                    </div>                                                                 
+                </form>   
+               </article>
+              </div> 
+        </div>
+        <div class="col-md-3">         
+        </div>
+    </div>
+</div>
+    

@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <a class="navbar-brand" href="#">{{title}}</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li *ngIf = "authService.checkIfUserIsAdmin()" class="nav-item active">
+        <a class="nav-link btn btn-outline-success my-2 my-sm-0 ml-2" routerLink="/">Admin<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+       <a class="nav-link btn btn-outline-success my-2 my-sm-0 ml-2" routerLink="">Home<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a  class="nav-link btn btn-outline-success my-2 my-sm-0 ml-2" href="https://localhost:5001/swagger/index.html">Swagger<span class="sr-only">(current)</span></a>
+       </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+          <li *ngIf="!authService.checkIfLoggedIn()" class="nav-item active">
+            <a class="nav-link btn btn-outline-success my-2 my-sm-0" routerLink="/login">Login<span class="sr-only">(current)</span></a>
+          </li>
+          <li *ngIf="authService.checkIfLoggedIn()" class="nav-item active">
+              <a class="nav-link btn btn-outline-success my-2 my-sm-0" (click)="logout()">Logout<span class="sr-only">(current)</span></a>
+          </li>
+    </ul>
+  </div>
+</nav>
+<br>
+<br>
+<br>
+<br>
