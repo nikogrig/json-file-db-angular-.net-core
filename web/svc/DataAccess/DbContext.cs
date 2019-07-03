@@ -105,7 +105,7 @@ namespace src.DataAccess
                 using (StreamReader reader = File.OpenText(this.Path))
                 {
                     string json = reader.ReadToEnd();
-                    this.Items = (Root)JsonConvert.DeserializeObject(json, typeof(Root)); 
+                    this.Items = (Root)JsonConvert.DeserializeObject(json, typeof(Root));
                 }
 
                 if (this.Items != null)
